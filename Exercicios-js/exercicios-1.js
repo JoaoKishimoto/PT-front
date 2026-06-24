@@ -1,165 +1,301 @@
-// Questão 1
-function questaoUm (a, b){
-    console.log((a + b), (a - b), (a * b), (a / b));
-}
+import { q5 } from './exercicios-0.js'
 
-// teste Q1
-console.log("questão 1:");
-// esperado: 7, -3, 10, 0.4
-questaoUm(2, 5);
-
-function questaoDois (a, b, c) {
-    if(a == b && a == c){
-        return 'Equilátero';
-    } else if(a == b || a == c) {
-        return 'Isóceles';
+// Questão 11
+function q11 (ano) {
+    if (ano % 400 == 0) {
+        console.log('O ano é bissexto');
+        return true;
+    } else if (ano % 100 == 0) {
+        console.log('O ano não é bissexto');
+        return false;
+    } else if (ano % 4 == 0) {
+        console.log('O ano é bissexto');
+        return true;
     } else {
-        return 'Escaleno';
+        console.log('o Ano não é bissexto');
+        return false;
     }
 }
 
-// teste Q2
-console.log("\nQuestão 2:");
-// Equilátero esperado
-console.log(questaoDois(3, 3, 3));
-// Isóceles esperado
-console.log(questaoDois(3, 3, 1));
-// Escaleno esperado
-console.log(questaoDois(1, 2, 3));
+// teste Q11
+console.log('Questão 11:');
+// esperado: 'O ano é bissexto'
+q11(40);
+// esperado: 'O ano é bissexto'
+q11(400);
+// esperado: 'O ano não é bissexto'
+q11(100);
 
-// Questão 3
-function questaoTres (base, expoente) {
-    return Math.pow(base, expoente);
+
+// Questão 12
+function q12 (n) {
+    let fatorial = 1;
+    let i = n;
+    while (i > 0) {
+        fatorial *= i--;
+    }
+    return fatorial;
 }
 
-// teste questão 3
-console.log("\nQuestão 3:");
-// 32 esperado
-console.log(questaoTres(2, 5));
-// 1024 esperado
-console.log(questaoTres(2, 10));
+// teste Q12
+console.log('\nQuestão 12:');
+// esperado: 6
+console.log(q12(3));
+// esperado: 120
+console.log(q12(5));
 
-// Questão 4
-function questaoQuatro (dividendo, divisor) {
-    const resto = dividendo % divisor;
-    const resultado = (dividendo - resto) / divisor;
-    console.log(resultado, resto);
-}
-
-// teste Q4
-console.log("\nQuestão 4:");
-// 4, 1 esperado
-questaoQuatro(29, 7);
-// 5, 0 esperado
-questaoQuatro(25, 5)
-
-// Questão 5
-function questaoCinco (preco) {
-    let base = 'R$'
-    const valor = preco.toFixed(2).toString();
-    return base.concat(valor.replace('.', ','));
-}
-
-// teste Q5
-console.log("\nQuestão 5:");
-// esperado 'R$420,69'
-console.log(questaoCinco(420.68703));
-// esperado 'R$800,85'
-console.log(questaoCinco(800.84792));
-
-// Questão 6
-function seisSimples (capital, juros, tempo) {
-    return questaoCinco(capital * (1 + juros * tempo));
-}
-
-function seisComposto (capital, juros, tempo) {
-    return questaoCinco(capital * (Math.pow(1 + juros, tempo)));
-}
-
-// teste Q6
-console.log("\nQuestão 6:");
-// esperado 'R$1200,00'
-console.log(seisSimples(1000, 0.1, 2));
-// esperado 'R$1210,00'
-console.log(seisComposto(1000, 0.1, 2));
-
-// Questão 7
-function questaoSete (a, b, c) {
-    const delta = Math.pow(b, 2) - (4 * a * c);
-    if (delta < 0) {
-        return 'Delta é negativo';
-    } else {
-        let raizes = []
-        const raizDelta = Math.pow(delta, 1/2);
-        raizes.push((-b - raizDelta)/2);
-        raizes.push((-b + raizDelta)/2);
-        return raizes;
+// Questão 13
+function q13 (dia) {
+    switch (dia) {
+        case (1):
+            console.log('Dia inválido');
+            break;
+        case (2):
+            console.log('Dia útil');
+            break;
+        case (3):
+            console.log('Dia útil');
+            break;
+        case (4):
+            console.log('Dia útil');
+            break;
+        case (5):
+            console.log('Dia útil');
+            break;
+        case (6):
+            console.log('Dia útil');
+            break;
+        case (7):
+            console.log('Dia inválido');
+            break;
     }
 }
 
-// teste Q7
-console.log('\nQuestão 7:');
-// esperado: [1, 1]
-console.log(questaoSete(1, -2, 1));
-//esperado: [2, 3]
-console.log(questaoSete(1, -5, 6));
-//esperado: 'Delta é negativo'
-console.log(questaoSete(1, 2, 20));
+// teste Q13
+console.log('\nQuestão 13:');
+// esperado: 'Dia útil'
+q13(3);
+// esperado: 'Dia inválido'
+q13(1);
 
-// questão 8
-function questaoOito (listaString) {
-    const lista = listaString.split(" ");
-    let record = Number(lista[0]);
-    let recordCount = 0;
-    let worst = Number(lista[0]);
-    let indexWorst = 0;
-    for (let i = 0; i < lista.length; i++) {
-        if (Number(lista[i]) > record) {
-            record = lista[i];
-            recordCount++;
-        } else if (Number(lista[i]) < worst) {
-            worst = lista[i];
-            indexWorst = i;
-        }
+// Questão 14
+function q14 (fruta) {
+    switch(fruta) {
+        case ('maçã'):
+            console.log('Não vendemos essa fruta aqui');
+            break;
+        case ('kiwi'):
+            console.log('Estamos com escassez de kiwis');
+            break;
+        case ('melancia'):
+            console.log('Aqui está, são 3 reais o quilo');
+            break;
+        default:
+            console.log('Error 404: Fruit Not Found');
+            break;
+        // Eu se divirto
     }
-    return [recordCount, indexWorst + 1]
 }
 
-// teste Q8
-console.log('\nQuestão 8:');
-// esperado: [2, 3]
-console.log(questaoOito('7 9 5 12 9'));
+// teste Q14
+console.log('\nQuestão 14:');
+// esperado: 'Não vendemos essa fruta aqui' (banquinha do médico)
+q14('maçã');
+// esperado: 'Estamos com escassez de kiwis'
+q14('kiwi');
+// esperado: 'Aqui está, são 3 reais o quilo'
+q14('melancia');
+// esperado: 'Error 404: Fruit Not Found'
+q14('banana');
 
-// Questão 9
-function questaoNove (notas) {
-    const resultado = [];
-    for (let i = 0; i < notas.length; i ++) {
-        if (notas[i] < 38) {
-            resultado.push('Reprovado');
-        } else if (notas[i] % 5 >= 3) {
-            notas[i] += 5 - (notas[i] % 5);  
-            resultado.push('Aprovado');
-        } else {
-            resultado.push('Aprovado');
-        }
+// Questão 15
+function q15 (modelo) {
+    switch (modelo) {
+        case ('hatch'):
+            console.log('Compra efetuada com sucesso');
+            break;
+        case ('sedan' || 'motocicleta' || 'caminhonetes'):
+            console.log('Tem certeza que não prefere esse modelo?');
+            break;
+        default:
+            console.log('Não trabalhamos com este tipo de automóvel aqui');
+            break;
     }
-    return [notas, resultado];
 }
 
-// teste Q9
-console.log('\n Questão 9:');
-// esperado: [[13, 35, 40, 37, 70, 100],
-// ['Reprovado', 'Reprovado', 'Aprovado', 'Reprovado', 'Aprovado', 'Aprovado']]
-console.log(questaoNove([13, 35, 38, 37, 69, 98]));
+// teste Q15
+console.log('\nQuestão 15:');
+// esperado: 'Compra efetuada com sucesso"
+q15('hatch');
+// esperado: 'Tem certeza que não prefere esse modelo?'
+q15('sedan');
+// esperado: 'Não trabalhamos com este tipo de automóvel aqui'
+q15('avião');
 
-// Questão 10
-function questaoDez (n) {
-    return (n % 3 == 0);
+// Questão 16
+function q16 (a, operando, b) {
+    switch (operando) {
+        case ('+'):
+            return a + b;
+        case ('-'):
+            return a - b;
+        case ('*'):
+            return a * b;
+        case ('/'):
+            return a / b;
+        default:
+            return('Operador inválido');
+            break;
+    }
 }
 
-// teste  Q10
-console.log('\nQuestão 10:');
-// esperado: true
-console.log(questaoDez(19260));
-// esperado: false
-console.log(questaoDez(21491));
+// teste Q16
+console.log('\nQuestão 16:');
+// esperado: 15
+console.log(q16(10, '+', 5));
+// esperado: 5
+console.log(q16(10, '-', 5));
+// esperado: 50
+console.log(q16(10, '*', 5));
+// esperado: 2
+console.log(q16(10, '/', 5));
+// esperado: 'Operador inválido'
+console.log(q16(10, 'x', 5));
+
+// Questão 17
+function q17 (plano, salario) {
+    switch (plano) {
+        case ('A'):
+            return q5(salario * (1 + 0.10));
+        case ('B'):
+            return q5(salario * (1 + 0.15));
+        case ('C'):
+            return q5(salario * (1 + 0.20));
+        default:
+            return 'Plano inválido';
+    }
+}
+
+// teste Q17
+console.log('\nQuestão 17:');
+// esperado: R$1200,00
+console.log(q17('C', 1000));
+// esperado: 'Plano inválido'
+console.log(q17('Ah', 1));
+
+// Questão 18
+function q18 (n) {
+    switch (n) {
+        case (0):
+            console.log('Zero');
+            break;
+        case (1):
+            console.log('Um');
+            break;
+        case (2):
+            console.log('Dois');
+            break;
+        case (3):
+            console.log('Três');
+            break;
+        case (4):
+            console.log('Quatro');
+            break;
+        case (5):
+            console.log('Cinco');
+            break;
+        case (6):
+            console.log('Seis');
+            break;
+        case (7):
+            console.log('Sete');
+            break;
+        case (8):
+            console.log('Oito');
+            break;
+        case (9):
+            console.log('Nove');
+            break;
+        case (10):
+            console.log('Dez');
+            break;
+        default:
+            console.log('Número fora do intervalo.');
+    }
+}
+
+// Teste Q18
+console.log('\nQuestão 18');
+// esperado 'Número fora do intervalo'
+q18(11);
+// esperado 'Quatro'
+q18(4);
+
+// Questão 19
+function q19 (codigo, quant) {
+    switch (codigo) {
+        case (100):
+            return q5(quant * 3);
+        case (200):
+            return q5(quant * 4);
+        case (300):
+            return q5(quant * 5.5);
+        case (400):
+            return q5(quant * 7.5);
+        case (500):
+            return q5(quant * 3.5);
+        case (600):
+            return q5(quant * 2.8);
+        default:
+            return 'Codigo inválido';
+    }
+}
+
+// teste Q19
+console.log('\nQuestão 19:');
+// esperado: 'R$22,00'
+console.log(q19(300, 4));
+// esperado: 'Código inválido'
+console.log(q19(3000, 4));
+
+// Questão 20
+function q20 (valor) {
+    let notas100;
+    let notas50;
+    let notas10;
+    let notas5;
+    let notas1;
+
+    if (valor / 100 >= 1) {
+        notas100 = Math.trunc(valor / 100);
+        console.log(`${notas100} nota(s) de R$100. `)
+        valor %= 100;
+    }
+    if (valor / 50 >= 1) {
+        notas50 = Math.trunc(valor / 50);
+        console.log(`${notas50} nota(s) de R$50. `)
+        valor %= 50;
+    }
+    if (valor / 10 >= 1) {
+        notas10 = Math.trunc(valor / 10);
+        console.log(`${notas10} nota(s) de R$10. `)
+        valor %= 10;
+    }
+    if (valor / 5 >= 1) {
+        notas5 = Math.trunc(valor / 5);
+        console.log(`${notas5} nota(s) de R$5. `)
+        valor %= 5;
+    }
+    if (valor != 0) {
+        notas1 = valor;
+        console.log(`${notas1} nota(s) de R$1. `)
+    }
+}
+
+// teste Q20
+console.log('\nQuestão 20:');
+/* esperado:    '1 nota(s) de R$50'
+                '1 nota(s) de R$10'
+                '1 nota(s) de R$5'
+                '4 nota(s) de R$1' */
+q20(69);
