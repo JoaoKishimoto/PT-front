@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEP API</title>
+    <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+    <div class="container">
+        <form name="cep-automation" action="submit">
+            
+            <div class="form-item">
+                <label for="cep">CEP</label>
+                <input id="cep" name="cep" type="text">
+            </div>
+            
+            <div class="form-item">
+                <label for="logradouro">Logradouro</label>
+                <input name="logradouro" type="text">
+            </div>
+
+            <div class="form-item">
+                <label for="numero">Número</label>
+                <input name="numero" type="number">
+            </div>
+            
+            <div class="form-item">
+                <label for="complemento">Complemento</label>
+                <input name="complemento" type="text">
+            </div>
+
+            <div class="form-item">
+                <label for="bairro">Bairro</label>
+                <input name="bairro" type="text">
+            </div>
+
+            <div class="form-item">
+                <label for="cidade">Cidade</label>
+                <input name="cidade" type="text">
+            </div>
+
+            <button id="send-button" type="submit">Enviar</button>
+
+        </form>
+    </div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/inputmask@5.0.9/dist/inputmask.min.js"></script>
+<script src="./script.js"></script>
+</html>
